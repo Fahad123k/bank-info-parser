@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <h1>this is home</h1>
-</head>
-<body>
+    <title>
+        <%= title %> 
+    </title>
     
+</head>
+
+<h3>Upload your pdf here</h3>
+<body>
+    <form action="/upload-document" method="post" class="form-container">
+        <!-- <label for="myfile">Select a file:</label> -->
+        <input type="file" id="myfile" name="myfile"> <br> <br>
+        <input type="text" name="name" id="" placeholder="Your Names" required>
+        <input type="submit" value="Upload" id="UploadBtn">
+    </form>
 </body>
+
 </html>
