@@ -3,7 +3,7 @@ module.exports.home = function (req, res) {
     return res.render('home',
 
         {
-            title: "sweet home"
+            title: "BankParser"
         }
     )
 }
@@ -38,9 +38,7 @@ module.exports.create = function (req, res) {
             for (let index = 0; index < bankDataArray.length; index++) {
                 let element = bankDataArray[index];
 
-                // nameC= /Name\s(.*?)Address/i.exec(element)[1].trim()
-                // console.log("data:",index,element)
-                // CustomerNamePosition=element.search('Customer Name:')
+         
                 if(element.search('Name')>0){
                     // console.log("insie :")
                     CustomerName=element.split(':')

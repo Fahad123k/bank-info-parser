@@ -28,6 +28,12 @@ color: aliceblue;
     justify-content: space-evenly;
 
 }
+.links #name{
+    color: brown;
+    padding: 10px 10px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
 
 .renderContainer{
     display: flex;

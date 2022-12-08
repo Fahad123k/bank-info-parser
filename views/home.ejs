@@ -8,17 +8,61 @@
     <title>
         <%= title %> 
     </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@100;200;300;400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+        body{
+            font-family: 'Roboto', sans-serif;
+            background-color: rgb(224, 233, 233);
+
+        }
+        .from-container{
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 60px;
+            margin-left: 28%;
+            height: 380px;
+            width: 600px;
+            background-color: rgb(61, 207, 207);
+        }
+        .from-container h3{
+            margin-top: -10px;
+        }
+        .from-container input{
+            height: 22px;
+            border: none;
+            text-align: center;
+        }
+        #UploadBtn{
+            height: 25px;
+            border: none;
+        }
+        
+        #myfile{
+            color: rgb(50, 52, 53);
+            height: 25px;
+            border: none;
+        }
+
+    </style>
     
 </head>
 
-<h3>Upload your pdf here</h3>
 <body>
-    <form action="/upload-document" method="post" class="form-container">
-        <!-- <label for="myfile">Select a file:</label> -->
-        <input type="file" id="myfile" name="myfile"> <br> <br>
-        <input type="text" name="name" id="" placeholder="Your Names" required>
-        <input type="submit" value="Upload" id="UploadBtn">
-    </form>
+    
+    <div class="from-container">
+        <h3>Upload your pdf here</h3>
+        <form action="/upload-document" method="post" class="form-container">
+            <!-- <label for="myfile">Select a file:</label> -->
+            <input type="file" id="myfile" name="myfile" required> <br> <br>
+            <input type="text" name="name" id="na" placeholder="Your Names" required>
+            <input type="submit" value="Upload" id="UploadBtn">
+        </form>
+    </div>
+  
 </body>
 
 </html>
