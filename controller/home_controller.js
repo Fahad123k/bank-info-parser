@@ -15,6 +15,8 @@ module.exports.create = function (req, res) {
     const fs = require("fs")
     const getPDFText = require('../getPdfText')
     let bankDataArray=[];
+    let CustomerNamePosition;
+    let CustomerName=""
     // console.log(pdf);
 
 
@@ -28,18 +30,40 @@ module.exports.create = function (req, res) {
         //   });
 
             bankDataArray=pdfdata.text.split('\n')
+            let lengthBank=bankDataArray.length;
+            let DetailArray=[]
+            let statement=[];
             // console.log(bankDataArray.length)
             for (let index = 0; index < bankDataArray.length; index++) {
-                const element = bankDataArray[index];
-                console.log("data:",index,element)
+                let element = bankDataArray[index];
+
+                // console.log("data:",index,element)
+                // CustomerNamePosition=element.search('Customer Name:')
+                if(element.search('Name')>0){
+                    // console.log("insie :")
+                    CustomerName=element.split(':')
+                    DetailArray.push(CustomerName)
+                    // console.log(CustomerName)
+                }
+                if(element.search(':')>0){
+                    // console.log(" :")
+                    // CustomerName=
+                    // DetailArray.push(CustomerName)
+                    console.log("running")
+                    //  console.log(element.split(' '))
+                     statement.push(element.split(' '))
+                }
                 
             }
+            // console.log("customer name found "+DetailArray)
 
 
         return res.render('PdfToTable', {
             title: "rendered pdf",
             name: name,
-            data: JSON.stringify(pdfdata.text)
+            // data: JSON.stringify(pdfdata.text)
+            DetailArray:DetailArray,
+            statement:statement
         })
     }).catch(err => {
         console.log(err)
