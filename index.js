@@ -2,17 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000;
 const path = require('path');
-// const db= require('./config/mongoose')
-// const getPDFText =require('./getPdfText')
-// pdfdata=null;
-// getPDFText("sample.pdf").then(data => {
-//     pdfdata=data.text;
-//     console.log(data)
-// }).catch(err => {
-//     console.log(err)
-// })
-
-
 
 
 app.use(express.urlencoded());
