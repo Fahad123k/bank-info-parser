@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000;
 const path = require('path');
-
+// const db= require('./config/mongoose')
 // const getPDFText =require('./getPdfText')
 // pdfdata=null;
 // getPDFText("sample.pdf").then(data => {
@@ -11,6 +11,9 @@ const path = require('path');
 // }).catch(err => {
 //     console.log(err)
 // })
+
+
+
 
 app.use(express.urlencoded());
 app.use(express.static('./assets'))
@@ -24,5 +27,5 @@ app.set('views', path.join(__dirname, 'views'))
 
 
 app.use('/', require('./routes'))
-app.get('/', (req, res) => res.send('hello world'))
+// app.get('/', (req, res) => res.send('hello world'))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

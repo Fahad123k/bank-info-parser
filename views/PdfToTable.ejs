@@ -8,6 +8,20 @@
 </head>
 <body>
     <h1><%=name %> </h1>
-    <%= data %> 
+    <p id="para">
+        <%= data %> 
+    </p>
+ 
+   <script>
+ let para=document.getElementById('para').innerText;
+ const CustomerNameLeng="Customer Name".length;
+ let position = para.search("Customer Name");
+ let Name = para.slice(position+CustomerNameLeng+1, position+CustomerNameLeng+10);
+//  for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+    
+//  }
+ console.log(Name);
+   </script>
 </body>
 </html>

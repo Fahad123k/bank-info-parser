@@ -47,13 +47,20 @@ const getPDFText = async (pdfFile, maxPages) => {
 // }).catch(err => {
 //     console.log(err)
 // })
-// getPDFText("sample01.pdf").then(text => {
-//     console.log(text)
-// }).catch(err => {
-//     console.log(err)
-// })
+let mydata=null
+getPDFText("sample01.pdf").then(data => {
+    mydata=data;
+    console.log(data)
+}).catch(err => {
+    console.log(err)
+})
 
 
 
-module.exports=getPDFText;
+const express = require('express')
+const app = express()
+const port = 5000
+
+app.get('/', (req, res) => res.send(mydata.text[0]))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
