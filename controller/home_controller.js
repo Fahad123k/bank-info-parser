@@ -33,10 +33,12 @@ module.exports.create = function (req, res) {
             let lengthBank=bankDataArray.length;
             let DetailArray=[]
             let statement=[];
+            let transactions=[]
             // console.log(bankDataArray.length)
             for (let index = 0; index < bankDataArray.length; index++) {
                 let element = bankDataArray[index];
 
+                // nameC= /Name\s(.*?)Address/i.exec(element)[1].trim()
                 // console.log("data:",index,element)
                 // CustomerNamePosition=element.search('Customer Name:')
                 if(element.search('Name')>0){
@@ -49,21 +51,31 @@ module.exports.create = function (req, res) {
                     // console.log(" :")
                     // CustomerName=
                     // DetailArray.push(CustomerName)
-                    console.log("running")
+                    // console.log("running")
                     //  console.log(element.split(' '))
                      statement.push(element.split(' '))
                 }
+
+                if(element.search('Transaction')>0){
+
+                    console.log("insie :",element.split(" "))
+                    // CustomerName=element.split(':')
+                    // DetailArray.push(CustomerName)
+                    // // console.log(CustomerName)
+                }
+               
                 
             }
             // console.log("customer name found "+DetailArray)
 
 
         return res.render('PdfToTable', {
-            title: "rendered pdf",
+            title: "Bank DataParser",
             name: name,
             // data: JSON.stringify(pdfdata.text)
             DetailArray:DetailArray,
-            statement:statement
+            statement:statement,
+            bankDataArray:bankDataArray
         })
     }).catch(err => {
         console.log(err)

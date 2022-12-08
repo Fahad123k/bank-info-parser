@@ -5,33 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> </title>
+    <link rel="stylesheet" href="/css/PdfCss.css">
 </head>
 <body>
-    <h1><%=name %> </h1>
-   
-    
   
 
-    <% for( let index = 0; index < DetailArray.length; index++ ) { %>
-        <ul>
-            <li>
-                <%= DetailArray[index] %> 
-            </li>
-        </ul>
-        
-        <% } %>
-        <% for( let index = 0; index < statement.length; index++ ) { %>
-            <ul>
-                <li>
-                    <%= statement[index] %> 
-                </li>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h4>BankParser</h4>
+                <!-- <p>BankParser</p> -->
+            </div>
+            <div class="links">
+                <ul>
+                    <li>Home</li>
+                    <li>Action</li>
+                    <li>Account Info</li>
+                    <li>Login</li>
             </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+       <div class="renderContainer">
+        <% for( let index = 0; index < bankDataArray.length; index++ ) { %>
+
+            <div class="itmes">
+                <p>
+                    <%= bankDataArray[index] %> 
+
+                </p>
+            </div>
+         
+            
+           <% } %>
+       </div>
+
+ 
     
-    <% } %>
  
-   <script>
- let para=document.getElementById('para').innerText;
  
-   </script>
 </body>
 </html>
